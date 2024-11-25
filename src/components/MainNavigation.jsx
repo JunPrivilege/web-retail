@@ -36,7 +36,7 @@ function MainNavigation() {
                 aria-disabled
                 className="text-stone-200 cursor-not-allowed uppercase font-bold text-xl"
               >
-               -
+                -
               </a>
               <a
                 aria-disabled
@@ -59,11 +59,14 @@ function MainNavigation() {
             </li>
           </ul>
           <ul className="flex gap-5 cursor-pointer">
-            <li className="m-0 p-0">
-              <Link to="cart" className="fa-solid fa-cart-shopping">
-                <span className=" rounded text-white bg-stone-400">
-                  {cartQuantity}
-                </span>
+            <li className="relative m-0 p-0">
+              <Link to="cart" className="relative">
+                <i className="fa-solid fa-cart-shopping"></i>
+                {cartQuantity > 0 && (
+                  <span className="absolute -top-1.5 -right-1.5 flex h-4 w-4 items-center justify-center rounded-full bg-red-500 text-[9px] font-bold text-white">
+                    {cartQuantity}
+                  </span>
+                )}
               </Link>
             </li>
             <li className="m-0 p-0">
