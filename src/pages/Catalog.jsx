@@ -12,12 +12,17 @@ function CatalogPage() {
   const data = useLoaderData();
   const [visibleCount, setVisibleCount] = useState(0);
   const [sortOption, setSortOption] = useState("default");
+  const [searchQuery, setSearchQuery] = useState("");
 
   const sortOptions = [
     { label: "Sort by Default", value: "default" },
     { label: "Sort by Price", value: "price" },
     { label: "Sort by Name", value: "name" },
   ];
+
+  const filteredData = data.filter((product) =>
+    product.title.toLowerCase().includes(searchQuery.toLowerCase())
+  );
 
   const itemTemplate = (option) => {
     return (
@@ -53,6 +58,16 @@ function CatalogPage() {
           <p className="font-medium text-stone-400">
             Showing 1 - {visibleCount} of {data.length} results
           </p>
+          <div className="flex items-center border rounded-lg px-4 py-2 w-72">
+            <i className="fa-solid fa-magnifying-glass"></i>
+            <input
+              type="text"
+              className="ml-3 w-full focus:outline-none"
+              placeholder="Search products..."
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+            />
+          </div>
           <div className="flex items-center gap-4">
             <p className="font-medium">Filter</p>
             <i className="fa-solid fa-list"></i>
@@ -63,7 +78,7 @@ function CatalogPage() {
               onChange={(e) => setSortOption(e.value)}
               itemTemplate={itemTemplate}
             />
-            <i className="fa-solid fa-magnifying-glass"></i>
+
             <ul className="flex items-center gap-3">
               {LAYOUT_GROUP.map((data) => (
                 <li key={data.id}>
@@ -74,7 +89,7 @@ function CatalogPage() {
           </div>
         </div>
         <ProductList
-          products={data}
+          products={filteredData}
           sortOption={sortOption}
           buttonTitle="Load More"
           onVisibleChange={setVisibleCount}

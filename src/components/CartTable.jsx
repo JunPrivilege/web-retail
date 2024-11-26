@@ -188,7 +188,7 @@ function CartTable() {
               onChange={(e) => setSelectedCourier(e.value)}
             />
             <input
-              type="text"
+              type="number"
               placeholder="Weight (Gram)"
               value={weight}
               onChange={(e) => setWeight(e.target.value)}
