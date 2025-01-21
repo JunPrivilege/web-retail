@@ -40,22 +40,22 @@ function CatalogPage() {
           src={CatalogHeader}
           alt="rooms"
         />
-        <div className="absolute inset-0 flex items-center justify-center max-w-lg ml-48">
-          <p className="p-8 flex flex-col justify-center w-full">
+        <div className="header-catalog absolute inset-0 flex items-center justify-center max-w-lg ml-48">
+          <div className="p-8 flex flex-col justify-center w-full">
             <h2 className="text-5xl font-bold mb-4 text-white">CATALOG</h2>
-            <p className="font-thin text-white">
+            <p className="font-thin text-white line-clamp-3">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat
               enim quos iure repudiandae amet sit vitae, atque id deserunt totam
             </p>
-          </p>
+          </div>
         </div>
       </div>
 
-      <div className="px-32 pb-28">
+      <div className="catalog px-32 pb-28">
         <CategoriesCatalog />
 
-        <div className="flex justify-between items-center pb-10">
-          <p className="font-medium text-stone-400">
+        <div className="list-shortcuts flex justify-between items-center pb-10">
+          <p className="font-medium text-stone-400 line-clamp-1">
             Showing 1 - {visibleCount} of {data.length} results
           </p>
           <div className="flex items-center border rounded-lg px-4 py-2 w-72">
@@ -72,14 +72,14 @@ function CatalogPage() {
             <p className="font-medium">Filter</p>
             <i className="fa-solid fa-list"></i>
             <Dropdown
-              className="font-medium w-1/3"
+              className="sort-option font-medium w-1/3"
               value={sortOption}
               options={sortOptions}
               onChange={(e) => setSortOption(e.value)}
               itemTemplate={itemTemplate}
             />
 
-            <ul className="flex items-center gap-3">
+            <ul className="layout-group flex items-center gap-3">
               {LAYOUT_GROUP.map((data) => (
                 <li key={data.id}>
                   <img className="w-full h-full" src={data.img} alt="" />

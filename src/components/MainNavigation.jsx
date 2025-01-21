@@ -1,65 +1,41 @@
+import { useState } from "react";
 import { useSelector } from "react-redux";
 import { Link, NavLink } from "react-router-dom";
 
 function MainNavigation() {
   const cartQuantity = useSelector((state) => state.cart.totalQuantity);
+  const [showMenu, setShowMenu] = useState(false);
 
   return (
-    <header className="flex w-full pt-10 pb-5 px-14 justify-center items-center">
+    <header className="flex w-full pt-5 pb-3 px-4 md:px-14 justify-between items-center">
       <nav className="w-full">
-        <h1 className="text-center text-6xl font-bold m-0 font-mono">Logo</h1>
-        <div className="flex justify-around items-center mt-10">
-          <div className="flex">
-            <i className="fas fa-search text-xl"></i>
-          </div>
-          <ul className="flex">
-            <li className="gap-8 flex list-none">
-              <NavLink
-                className="uppercase no-underline font-bold text-xl"
-                to="/"
-              >
+        <div className="flex justify-between items-center">
+          <button
+            className="flex items-center md:hidden"
+            onClick={() => setShowMenu((prev) => !prev)}
+          >
+            <i className="fas fa-bars text-xl"></i>
+          </button>
+
+          <h1 className="text-3xl md:text-6xl font-bold m-0 font-mono text-center flex-1 md:flex-none">
+            Logo
+          </h1>
+
+          <ul className="hidden md:flex gap-8 list-none uppercase font-bold text-lg mt-4 md:mt-0 justify-center">
+            <li>
+              <NavLink className="no-underline" to="/">
                 Home
               </NavLink>
-              <NavLink
-                className="uppercase no-underline font-bold text-xl"
-                to="catalog"
-              >
+            </li>
+            <li>
+              <NavLink className="no-underline" to="catalog">
                 Catalog
               </NavLink>
-              <a
-                aria-disabled
-                className="text-stone-200 cursor-not-allowed uppercase font-bold text-xl"
-              >
-                -
-              </a>
-              <a
-                aria-disabled
-                className="text-stone-200 cursor-not-allowed uppercase font-bold text-xl"
-              >
-                -
-              </a>
-              <a
-                aria-disabled
-                className="text-stone-200 cursor-not-allowed uppercase font-bold text-xl"
-              >
-                -
-              </a>
-              <a
-                aria-disabled
-                className="text-stone-200 cursor-not-allowed uppercase font-bold text-xl"
-              >
-                -
-              </a>
-              <a
-                aria-disabled
-                className="text-stone-200 cursor-not-allowed uppercase font-bold text-xl"
-              >
-                -
-              </a>
             </li>
           </ul>
-          <ul className="flex gap-5 cursor-pointer">
-            <li className="relative m-0 p-0">
+
+          <ul className="flex gap-5 items-center cursor-pointer">
+            <li className="relative">
               <Link to="cart" className="relative">
                 <i className="fa-solid fa-cart-shopping text-xl"></i>
                 {cartQuantity > 0 && (
@@ -69,14 +45,37 @@ function MainNavigation() {
                 )}
               </Link>
             </li>
-            <li className="m-0 p-0">
+            <li>
               <i className="fa-regular fa-heart text-xl"></i>
             </li>
-            <li className="m-0 p-0">
+            <li>
               <i className="fa-regular fa-user text-xl"></i>
             </li>
           </ul>
         </div>
+
+        {showMenu && (
+          <ul className="md:hidden flex flex-col gap-4 mt-4 uppercase font-bold text-lg">
+            <li>
+              <NavLink
+                className="no-underline"
+                to="/"
+                onClick={() => setShowMenu(false)}
+              >
+                Home
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                className="no-underline"
+                to="catalog"
+                onClick={() => setShowMenu(false)}
+              >
+                Catalog
+              </NavLink>
+            </li>
+          </ul>
+        )}
       </nav>
     </header>
   );

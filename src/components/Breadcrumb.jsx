@@ -5,7 +5,7 @@ const Breadcrumb = () => {
   const matches = useMatches();
 
   return (
-    <div className="flex items-center text-white bg-black space-x-2 h-20 w-full px-32">
+    <div className="breadcrumb-content flex items-center text-white bg-black space-x-2 h-20 w-full px-32">
       <Link to="/" className="hover:underline">
         Home
       </Link>

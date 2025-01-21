@@ -1,6 +1,7 @@
 import { useDispatch } from "react-redux";
 
 import { cartActions } from "../store/cart-slice";
+import Button from "./Button";
 
 /* eslint-disable react/prop-types */
 function CartItemDetail({
@@ -9,7 +10,7 @@ function CartItemDetail({
   category,
   price,
   quantity,
-  total,
+  // total,
   id,
 }) {
   const dispatch = useDispatch();
@@ -35,45 +36,38 @@ function CartItemDetail({
   }
 
   return (
-    <tr className="border-b">
-      <td className="px-4 py-4 flex items-center space-x-4">
-        <img src={image} alt={title} className="w-12 h-16 object-cover" />
+    <div className="flex flex-col lg:flex-row items-center lg:justify-between border-b py-4">
+      <div className="flex items-center space-x-4 w-full lg:w-1/2">
+        <img src={image} alt={title} className="w-16 h-20 object-cover" />
         <div>
-          <p className="font-semibold text-gray-700 text-ellipsis truncate w-52">
-            {title}
-          </p>
-          <p className="text-sm text-gray-500">{category}</p>
+          <p className="font-semibold text-stone-700 lg:w-50">{title}</p>
+          <p className="text-sm text-stone-500">{category}</p>
+          <p className="text-red-500 mt-2 font-semibold">${price.toFixed(2)}</p>
         </div>
-      </td>
-      <td className="px-4 py-4 text-center text-gray-700">
-        {price.toFixed(2)}
-      </td>
-      <td className="px-4 py-4 text-center">
-        <div className="flex items-center justify-center space-x-2">
-          <button
+      </div>
+      <div className="flex items-center justify-between w-full lg:w-1/2 mt-4 lg:mt-0">
+        <div className="flex items-center space-x-2">
+          <Button
+            title="-"
             onClick={removeItemHandler}
-            className="px-2 py-1 border border-gray-300 rounded text-gray-700"
-          >
-            -
-          </button>
+            className="px-2 py-1 border border-stone-300 rounded text-stone-700"
+          />
           <span className="px-2">{quantity}</span>
-          <button
+          <Button
+            title="+"
             onClick={addItemHandler}
-            className="px-2 py-1 border border-gray-300 rounded text-gray-700"
-          >
-            +
-          </button>
+            className="px-2 py-1 border border-stone-300 rounded text-stone-700"
+          />
         </div>
-      </td>
-      <td className="px-4 py-4 text-center text-gray-700">
-        {total.toFixed(2)}
-      </td>
-      <td className="px-4 py-4 text-center">
-        <button onClick={removeAllItemsHandler} className="text-gray-500 hover:text-red-500">
+        {/* <p className="text-red-500">${total.toFixed(2)}</p> */}
+        <button
+          onClick={removeAllItemsHandler}
+          className="text-stone-500 hover:text-red-500"
+        >
           <i className="fa-solid fa-trash"></i>
         </button>
-      </td>
-    </tr>
+      </div>
+    </div>
   );
 }
 

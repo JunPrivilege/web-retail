@@ -25,60 +25,6 @@ body {
   margin: 0;
 }
 
-/* STYLE NAVIGATION */
-/* #nav {
-  width: 100%;
-  padding: 20px 15px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-} */
-
-/* #nav .content-wrapper {
-  border: 1px solid blue;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-} */
-
-/* #nav h1 {
-  text-align: center;
-  font-size: 3.5rem;
-  font-weight: 700;
-  margin: 0;
-  padding: 5px 0px 20px;
-} */
-
-/* #nav ul {
-  gap: 2rem;
-  list-style: none;
-} */
-/* 
-#nav ul li {
-  display: flex;
-} */
-
-/* #nav ul a {
-  text-transform: uppercase;
-  text-decoration: none;
-  font-weight: 800;
-  color: var(--navbar-color-text); */
-  /* padding: 5px 20px; */
-  /* white-space: nowrap; */
-/* } */
-
-/* #nav .icon-wrapper {
-  display: flex;
-  gap: 1.3rem;
-  padding: 5px 12px;
-  cursor: pointer;
-}
-
-#nav .icon-wrapper a {
-  margin: 0;
-  padding: 0;
-} */
-
 /* STYLE HOMEPAGE */
 .card {
   background-image: url("./assets/blue-chair.jpg");
@@ -92,15 +38,287 @@ body {
   border: 1px solid red;
 }
 
+@media screen and (max-width: 992px) {
+  .homepage .content {
+    padding-left: 3rem;
+    padding-right: 3rem;
+  }
+
+  .home-projects .scroll-horizontal-wrapper {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .home-projects .scroll-horizontal-item img {
+    width: 100%;
+    height: 16rem;
+    object-fit: cover;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .homepage .media {
+    position: absolute;
+    box-shadow: none;
+    margin-right: 6.5rem;
+    top: 15rem;
+  }
+
+  .homepage .content {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+
+  .home-projects .scroll-horizontal-wrapper {
+    display: grid;
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+  }
+
+  .home-projects .scroll-horizontal-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .home-projects .scroll-horizontal-item img {
+    width: 70%;
+    height: 16rem;
+    object-fit: cover;
+  }
+}
+
+@media screen and (max-width: 575px) {
+  .homepage .media {
+    position: absolute;
+    box-shadow: none;
+    margin-right: 6.5rem;
+    top: 15rem;
+  }
+
+  .homepage .content {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+
+@media screen and (max-width: 427px) {
+  .homepage .media {
+    position: absolute;
+    margin: 0;
+    padding: 20px;
+    box-shadow: none;
+    top: 15rem;
+  }
+
+  .homepage .content {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+
+  .homepage h2 {
+    font-size: 1.5rem;
+  }
+
+  .homepage p {
+    font-size: small;
+  }
+
+  .homepage button {
+    padding: 0.5rem 1rem 0.5rem 1rem;
+  }
+
+  .home-products .scroll-horizontal-wrapper {
+    display: flex;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    white-space: nowrap;
+    scroll-behavior: smooth;
+    align-items: center;
+  }
+
+  .home-products .scroll-horizontal-item {
+    flex-shrink: 0;
+    width: 100%;
+    margin-bottom: 1rem;
+  }
+
+  .home-products.scroll-horizontal-item img {
+    width: 100%;
+    height: 16rem;
+    object-fit: cover;
+  }
+}
+
+/* STYLE HOMEPAGE */
+
+/* STYLE HEADER CONTENT */
+
+@media screen and (max-width: 768px) {
+  .header-content h1 {
+    padding-top: 5rem;
+  }
+
+  .header-content p {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 427px) {
+  .header-content h1 {
+    padding-top: 5rem;
+  }
+
+  .header-content p {
+    width: 100%;
+  }
+}
+/* STYLE HEADER CONTENT */
+
 /* STYLE CATALOGPAGE */
+
+@media screen and (max-width: 875px) {
+  .catalog {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+
+@media screen and (max-width: 427px) {
+  .catalog .list-shortcuts {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .catalog .list-shortcuts .layout-group {
+    display: none;
+  }
+
+  .header-catalog h2 {
+    font-size: 2rem;
+    line-height: 1;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .catalog .list-shortcuts {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .header-catalog {
+    display: flex;
+    inset: 0px;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+  }
+}
+
+@media screen and (max-width: 1023px) {
+  .catalog .list-shortcuts .layout-group {
+    display: none;
+  }
+
+  .catalog .list-shortcuts .sort-option {
+    width: 100%;
+  }
+
+  .promotional-banner .banner-option {
+    width: 100%;
+  }
+}
+
+/* STYLE CATALOGPAGE */
+
+/* STYLE PRODUCT DETAIL */
+
+@media screen and (max-width: 1023px) {
+  .product-detail {
+    padding-left: 4rem;
+    padding-right: 4rem;
+  }
+}
+
+@media screen and (max-width: 578px) {
+  .breadcrumb-content {
+    padding-left: 2rem;
+    padding-right: 1px;
+  }
+}
+
+@media screen and (max-width: 485px) {
+  .product-detail {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+/* STYLE PRODUCT DETAIL */
+
+/* STYLE CART */
+
+@media screen and (max-width: 1023px) {
+  .cart-table {
+    margin-top: 1rem;
+  }
+}
+
+@media screen and (max-width: 765px) {
+  .cart {
+    padding-left: 4rem;
+    padding-right: 4rem;
+  }
+
+  .cart-table {
+    margin-top: 1rem;
+  }
+}
+
+@media screen and (max-width: 485px) {
+  .cart {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+/* STYLE CART */
+
+/* STYLE FOOTER */
+
+@media screen and (max-width: 800px) {
+  .footer-content .footer-wrapper {
+    display: flex;
+    flex-direction: column;
+    line-height: 5rem;
+  }
+
+  .footer-content .footer-wrapper .footer-menu{
+    margin-top: 2rem;
+  }
+}
+
+@media screen and (max-width: 427px) {
+  .footer-content {
+    padding-left: 3rem;
+    padding-right: 3rem;
+  }
+}
+
+/* STYLE FOOTER */
+
 .scrollbar::-webkit-scrollbar {
-  width: 8px;  /* Lebar scrollbar vertikal */
+  width: 8px; /* Lebar scrollbar vertikal */
   height: 8px; /* Tinggi scrollbar horizontal */
 }
 
 .scrollbar::-webkit-scrollbar-thumb {
   background-color: #888; /* Warna scrollbar */
-  border-radius: 10px;    /* Membuat sudut scrollbar lebih bulat */
+  border-radius: 10px; /* Membuat sudut scrollbar lebih bulat */
 }
 
 .scrollbar::-webkit-scrollbar-thumb:hover {

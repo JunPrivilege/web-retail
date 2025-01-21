@@ -162,10 +162,10 @@ function CartTable() {
   const shippingCostInUSD = shippingCost * IDRtoUSD;
 
   return (
-    <div className="flex">
+    <div className="lg:flex">
       <CartItem />
 
-      <div className="w-1/3 p-4 border bg-white">
+      <div className="cart-table lg:w-1/3 p-4 border bg-white">
         {items.length > 0 && (
           <div className="space-y-4 mb-10">
             <DropdownOption
@@ -201,29 +201,28 @@ function CartTable() {
               onChange={(e) => setSelectedDeliveryType(e.value)}
               loading={!selectedCourier || !weight}
             />
-            <div className="flex justify-center">
               <Button
                 title={loading ? <LoadingSpinner /> : "Submit"}
                 onClick={handleSubmit}
                 disabled={loading}
+                className="px-4 py-2 bg-black text-white font-bold w-full rounded-bl-xl rounded-br-xl"
               />
-            </div>
           </div>
         )}
 
         <h3 className="text-lg font-semibold">
           Do you have a voucher?
-          <span className="text-stone-500 ml-4 text-sm font-light">
+          <span className="text-stone-500 ml-1 text-sm font-light">
             (Optional)
           </span>
         </h3>
-        <div className="mt-4 flex w-full">
+        <div className="mt-4 flex flex-wrap">
           <input
             type="text"
             placeholder="Enter the code"
-            className="flex-1 px-4 py-2 border border-stone-400 focus:outline-none"
+            className="flex-1 min-w-0 px-4 py-2 border border-stone-400 focus:outline-none"
           />
-          <Button title="Redeem" />
+          <Button title="Redeem" className="px-4 py-2 bg-black text-white font-bold"/>
         </div>
         <div className="mt-4">
           <p className="flex justify-between">
@@ -239,16 +238,14 @@ function CartTable() {
           <p className="flex justify-between mt-5 font-semibold">
             <span>
               Total
-              <span className="text-stone-500 ml-4 text-sm font-light">
+              <span className="text-stone-500 ml-1 text-sm font-light">
                 (VAT included.)
               </span>
             </span>
             <span>{formatter.format(totalPrice + shippingCostInUSD)}</span>
           </p>
         </div>
-        <button className="w-full mt-4 py-2 bg-black text-white font-semibold">
-          Safe to checkout
-        </button>
+        <Button title="Safe to checkout" className="w-full mt-4 py-2 bg-black text-white font-semibold" />
       </div>
     </div>
   );

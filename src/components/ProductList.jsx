@@ -37,14 +37,14 @@ function ProductList({ products, buttonTitle, onVisibleChange, sortOption }) {
                   src={product.image}
                   alt={product.title}
                 />
-                <p className="flex flex-col items-center mt-5">
+                <div className="flex flex-col items-center mt-5">
                   <p className="font-bold text-lg text-ellipsis truncate w-52">
                     {product.title}
                   </p>
                   <p className="font-medium text-stone-400">
                     {formatter.format(product.price)}
                   </p>
-                </p>
+                </div>
               </Link>
             </li>
           ))}

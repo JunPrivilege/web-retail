@@ -2,8 +2,8 @@ import { Link } from "react-router-dom";
 
 function Footer() {
   return (
-    <footer className="bg-black text-white py-10 px-24">
-      <div className="container mx-auto grid grid-cols-4 md:grid-cols-4">
+    <footer className="footer-content bg-black text-white py-10 px-24">
+      <div className="footer-wrapper container mx-auto grid grid-cols-4 md:grid-cols-4">
         <div className="md:mb-0 flex flex-col justify-between h-full">
           <h2 className="text-5xl font-bold font-mono">Logo</h2>
           <div className="flex flex-col">
@@ -24,7 +24,7 @@ function Footer() {
           </div>
         </div>
 
-        <div className="md:mb-0 leading-7">
+        <div className="footer-menu md:mb-0 leading-7">
           <h3 className="font-bold mb-2 text-xl">Products</h3>
           <ul>
             <li>
@@ -50,7 +50,7 @@ function Footer() {
           </ul>
         </div>
 
-        <div className="md:mb-0 leading-7">
+        <div className="footer-menu md:mb-0 leading-7">
           <h3 className="font-bold mb-2 text-xl">Services</h3>
           <ul>
             <li>
@@ -71,7 +71,7 @@ function Footer() {
           </ul>
         </div>
 
-        <div className="leading-7">
+        <div className="footer-menu leading-7">
           <h3 className="font-bold mb-2 text-xl">Contact Information</h3>
           <p className="text-gray-400">
             3181 Al Imam Saudi Ibn Abdul Aziz Branch Rd, An Nuzhah, Riyadh

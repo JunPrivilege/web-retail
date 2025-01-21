@@ -8,21 +8,23 @@ import Button from "./Button";
 function HomeProducts() {
   return (
     <HeaderContent title="Products">
-      <ul className="grid grid-cols-1 md:grid-cols-2 gap-10 p-2">
-        {SECTIONS.map((section) => (
-          <li key={section.id} className="relative">
-            <img
-              src={section.imgSrc}
-              alt={section.title}
-              className="w-full h-64 object-cover rounded-lg shadow-lg"
-            />
-            <p className="absolute -bottom-4 left-0 right-0 bg-black bg-opacity-70 text-white p-4 w-5/6 text-center mx-auto">
-              <h3 className="text-xl font-semibold">{section.title}</h3>
-              <p className="text-sm">{section.description}</p>
-            </p>
-          </li>
-        ))}
-      </ul>
+      <div className="home-products">
+        <ul className="scroll-horizontal-wrapper grid grid-cols-1 md:grid-cols-2 gap-10 p-2">
+          {SECTIONS.map((section) => (
+            <li key={section.id} className="scroll-horizontal-item relative">
+              <img
+                src={section.imgSrc}
+                alt={section.title}
+                className="w-full h-64 object-cover rounded-lg shadow-lg "
+              />
+              <p className="absolute -bottom-4 left-0 right-0 bg-black bg-opacity-70 text-white p-4 w-5/6 text-center mx-auto">
+                <h3 className="text-xl font-semibold">{section.title}</h3>
+                <p className="text-sm line-clamp-2">{section.description}</p>
+              </p>
+            </li>
+          ))}
+        </ul>
+      </div>
 
       <div className="relative w-full h-96 mt-24">
         <img
@@ -58,19 +60,21 @@ function HomeProducts() {
             <br />
             sagittis sit aliquet at. Magna nam platea justo.
           </p>
-          <ul className="flex flex-wrap gap-9 my-12">
-            {IMAGES.map((data) => ( 
-              <li key={data.id}>
+          <ul className="flex flex-wrap gap-9 my-12 justify-center items-center">
+            {IMAGES.map((data) => (
+              <li key={data.id} className="text-center">
                 <img className="w-52 h-72 object-cover" src={data.img} alt="" />
               </li>
             ))}
           </ul>
-          <Button title="Read More" />
+          <div className="text-center">
+            <Button title="Read More" />
+          </div>
         </div>
-        <span className="relative ml-auto">
+        <span className="relative ml-auto hidden md:block sm:hidden">
           <img
             src={LivingRoom}
-            alt=""
+            alt="Living Room"
             className="w-[25rem] h-full object-cover"
           />
           <p className="absolute inset-0 flex items-end max-w-52 ml-auto">

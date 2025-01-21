@@ -20,16 +20,16 @@ function ProductItem({ products = [], id, title, price, image, category }) {
   }
 
   return (
-    <div className="px-32 pt-10 pb-28">
+    <div className="product-detail px-32 pt-10 pb-28">
       <ul className="flex flex-wrap gap-6 w-full h-full justify-center">
         {products.map((product) => (
           <li
             key={product.id}
             id={product.id}
-            className="w-full grid grid-cols-1 md:grid-cols-2 gap-4 p-5"
+            className="w-full grid grid-cols-1 md:grid-cols-2 gap-10 p-5"
           >
             <img
-              className="w-[32rem] h-[23rem] object-cover"
+              className="w-[32rem] h-[23rem] object-contain sm:mx-auto"
               src={product.image}
               alt={product.title}
             />
