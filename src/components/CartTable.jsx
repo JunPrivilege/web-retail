@@ -28,11 +28,13 @@ function CartTable() {
   const [shippingCost, setShippingCost] = useState("");
   const [loading, setLoading] = useState(false);
 
+  const BASE_URL = import.meta.env.VITE_BACKEND_URL || "http://localhost:4000";
+
   // Fetch provinces from RajaOngkir API
   useEffect(() => {
     async function fetchProvinces() {
       try {
-        const response = await fetch("http://localhost:4000/api/province");
+        const response = await fetch(`${BASE_URL}/api/province`);
         if (!response.ok)
           throw new Error(`HTTP error! status: ${response.status}`);
 
@@ -49,7 +51,7 @@ function CartTable() {
       }
     }
     fetchProvinces();
-  }, []);
+  }, [BASE_URL]);
 
   // Fetch cities based on selected province
   useEffect(() => {
@@ -57,7 +59,7 @@ function CartTable() {
       const fetchCities = async () => {
         try {
           const response = await fetch(
-            `http://localhost:4000/api/city?province=${selectedProvince}`
+            `${BASE_URL}/api/city?province=${selectedProvince}`
           );
           if (!response.ok)
             throw new Error(`HTTP error! status: ${response.status}`);
@@ -78,14 +80,14 @@ function CartTable() {
       setCities([]);
       setSelectedCity("");
     }
-  }, [selectedProvince]);
+  }, [selectedProvince, BASE_URL]);
 
   // Fetch delivery types based on selected courier
   useEffect(() => {
     if (selectedCourier && selectedCity) {
       const fetchDeliveryTypes = async () => {
         try {
-          const response = await fetch(`http://localhost:4000/api/cost`, {
+          const response = await fetch(`${BASE_URL}/api/cost`, {
             method: "POST",
             headers: { "Content-Type": "application/x-www-form-urlencoded" },
             body: new URLSearchParams({
@@ -116,7 +118,7 @@ function CartTable() {
       setDeliveryTypes([]);
       setSelectedDeliveryType("");
     }
-  }, [selectedCourier, selectedCity, weight]);
+  }, [selectedCourier, selectedCity, weight, BASE_URL]);
 
   // Handle form submission to get final shipping cost
   const handleSubmit = async () => {
@@ -129,7 +131,7 @@ function CartTable() {
     ) {
       setLoading(true);
       try {
-        const response = await fetch(`http://localhost:4000/api/cost`, {
+        const response = await fetch(`${BASE_URL}/api/cost`, {
           method: "POST",
           headers: { "Content-Type": "application/x-www-form-urlencoded" },
           body: new URLSearchParams({
