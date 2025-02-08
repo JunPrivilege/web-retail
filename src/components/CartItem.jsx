@@ -1,4 +1,5 @@
 import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 
 import CartItemDetail from "./CartItemDetail";
 
@@ -25,8 +26,11 @@ function CartItem() {
             ))}
           </div>
         ) : (
-          <div className="text-center py-8 text-stone-500 text-lg">
-            No products in the cart
+          <div className="text-center py-8 ">
+            <p className="text-stone-500 text-lg">No products in the cart</p>
+            <Link to={"/catalog"} className="underline text-red-500">
+              shop here!
+            </Link>
           </div>
         )}
       </div>
